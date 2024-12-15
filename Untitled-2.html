@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recettes de Pâtisserie</title>
+    <style>
+        /* CSS pour le site de recettes */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFE4B5;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #FF4500;
+            padding: 15px 0;
+            text-align: center;
+            color: rgb(255, 0, 0);
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #accueil {
+            background-color: #f3eed8;
+            padding: 40px;
+            text-align: center;
+            border-bottom: 3px solid #FF4500;
+        }
+
+        .intro h1 {
+            font-size: 36px;
+            color: #FF4500;
+        }
+
+        .intro p {
+            font-size: 20px;
+            color: #666;
+        }
+
+        #recettes {
+            padding: 40px 20px;
+            background-color: #FFE4B5;
+        }
+
+        #recettes h2 {
+            color: #FF6347;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .recipes-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px; /* Espacement augmenté entre les cartes */
+            margin-top: 20px;
+            justify-items: center;
+        }
+
+        .recipe-card {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            height: 350px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .recipe-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .recipe-card h3 {
+            font-size: 24px;
+            color: #FF6347;
+            margin: 10px 0;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .view-recipe {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            background-color: #FF6347;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .view-recipe:hover {
+            background-color: #FF4500;
+        }
+
+        .recipe-details {
+            display: none;
+            padding: 20px;
+            background-color: #FFE4B5;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .recipe-details h3 {
+            font-size: 28px;
+            color: #FF6347;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#recettes">Recettes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="accueil">
+        <div class="intro">
+            <h1>Bienvenue sur le meilleur site de recettes de pâtisserie</h1>
+            <p>Découvrez des recettes sucrées et savoureuses pour toutes les occasions avec Hugo !</p>
+        </div>
+    </section>
+
+    <section id="recettes">
+        <h2>Nos Recettes</h2>
+        <div class="recipes-list">
+            <!-- Recette 1 : Gâteau au Chocolat -->
+            <div class="recipe-card" id="chocolat">
+                <img src="https://odelices.ouest-france.fr/images/recettes/2013/gateau_au_chocolat1.jpg" alt="Gâteau au chocolat">
+                <h3>Gâteau au Chocolat</h3>
+                <p class="description">Un gâteau fondant au chocolat, parfait pour les amateurs de chocolat.</p>
+                <a href="javascript:void(0)" class="view-recipe" onclick="showRecipe('chocolat')">Voir la recette</a>
+            </div>
+            <!-- Recette 2 : Tarte aux Fruits -->
+            <div class="recipe-card" id="fruits">
+                <img src="https://fac.img.pmdstatic.net/fit/~1~fac~2018~07~30~4f7ebb71-7ce1-42ba-b650-c172bfb2840d.jpeg/850x478/quality/80/crop-from/center/tarte-au-chocolat-et-fruits-rouges.jpeg" alt="Tarte aux fruits">
+                <h3>Tarte aux Fruits</h3>
+                <p class="description">Une tarte légère avec une crème pâtissière maison et des fruits frais de saison.</p>
+                <a href="javascript:void(0)" class="view-recipe" onclick="showRecipe('fruits')">Voir la recette</a>
+            </div>
+            <!-- Recette 3 : Éclairs au Chocolat -->
+            <div class="recipe-card" id="eclairs">
+                <img src="https://www.valrhona-selection.fr/uploads/sites/13/2022/05/eclair-chocolat.jpg" alt="Éclairs au chocolat">
+                <h3>Éclairs au Chocolat</h3>
+                <p class="description">Des éclairs légers avec une ganache au chocolat fondante et une pâte à choux parfaite.</p>
+                <a href="javascript:void(0)" class="view-recipe" onclick="showRecipe('eclairs')">Voir la recette</a>
+            </div>
+            <!-- Recette 4 : Macarons -->
+            <div class="recipe-card" id="macarons">
+                <img src="https://www.elle-et-vire.com/uploads/cache/1920x1200/uploads/recip/recipe/600/macarons.jpg" alt="Macarons">
+                <h3>Macarons</h3>
+                <p class="description">Des macarons délicats avec une coque croquante et un cœur fondant à la ganache au chocolat.</p>
+                <a href="javascript:void(0)" class="view-recipe" onclick="showRecipe('macarons')">Voir la recette</a>
+            </div>
+            <!-- Recette 5 : pain d'epice -->
+            <div class="recipe-card" id="pain d'epice">
+                <img src="https://cache.marieclaire.fr/data/photo/w995_ci/1pf/pain-d-epices.jpg?text=Macarons" alt="pain d'epice">
+                <h3>pain d'epice</h3>
+                <p class="description"> Un bon Pain d'épices doit être souple, présentant une odeur agréablement fruitée due au miel.</p>
+                <a href="javascript:void(0)" class="view-recipe" onclick="showRecipe('pain-d-epices')">Voir la recette</a>
+        </div>
+
+        <!-- Détails des recettes -->
+        <div id="recipe-details" class="recipe-details">
+            <h3 id="recipe-title">Détails de la recette</h3>
+            <p id="recipe-content">Sélectionnez une recette pour voir les détails.</p>
+        </div>
+    </section>
+
+    
+
+    <script>
+        function showRecipe(recipe) {
+            let title = "";
+            let content = "";
+
+            // Définition des détails de chaque recette
+            if (recipe === 'chocolat') {
+                title = "Recette du Gâteau au Chocolat";
+                content = "Ingrédients : 200g de chocolat, 100g de sucre, 100g de beurre, 3 œufs, 50g de farine. Préparation : Faites fondre le chocolat avec le beurre. Mélangez les œufs, le sucre, puis la farine. Ajoutez le chocolat fondu et faites cuire au four à 180°C pendant 30 minutes.";
+            } else if (recipe === 'fruits') {
+                title = "Recette de la Tarte aux Fruits";
+                content = "Ingrédients : Pâte sablée, crème pâtissière, fruits frais (fraises, kiwis, etc.). Préparation : Faites cuire la pâte sablée, préparez la crème pâtissière, puis garnissez la pâte avec la crème et les fruits de votre choix.";
+            } else if (recipe === 'eclairs') {
+                title = "Recette des Éclairs au Chocolat";
+                content = "Ingrédients : 200g de chocolat, 100g de beurre, 150g de farine, 4 œufs. Préparation : Préparez la pâte à choux, formez des éclairs et faites cuire au four. Garnissez avec une ganache au chocolat.";
+            } else if (recipe === 'macarons') {
+                title = "Recette des Macarons";
+                content = "Ingrédients : 200g de sucre glace, 100g de poudre d'amandes, 3 blancs d'œufs, 30g de sucre en poudre. Préparation : Mélangez les ingrédients secs, montez les blancs en neige, formez des coques et faites cuire au four.";
+            } else if (recipe === 'pain-d-epices') {
+                title = "Recette des pain d'epice";
+                content = "Ingrédients: 250 g de miel,  2 œufs,250 g de farine,1 cuillère à café d'anis en poudre,Un peu de lait,Une pincée de sel.procede: : Faites chauffer 250 g de miel, à la casserole ou aux micro-ondes, puis versez-le dans un saladier sur 250 g de farine. Mélanger aux autres ingrédients secs En remuant cette préparation avec une cuillère en bois, incorporez petit à petit 2 œufs, puis un peu de lait juste tiède pour amalgamer le tout.Préchauffez le four à thermostat 5/6 (160°C). Versez la préparation dans un moule à cake bien beurré et fariné.Enfournez et laissez cuire pendant 1H00 à 1H15. ";
+            }
+
+            // Affichage du contenu de la recette
+            document.getElementById('recipe-title').innerText = title;
+            document.getElementById('recipe-content').innerText = content;
+
+            // Afficher la section des détails
+            document.getElementById('recipe-details').style.display = "block";
+        
+        }  
+
+
+               </script> 
+</body>
+</html>
